@@ -1,8 +1,11 @@
-<?php get_header(); ?>
+<?php
+/*
+ * Start-Standardseite wenn kein Template ausgewählt
+ */
+get_header();
+?>
 
-<div class="content">
-
-</div>
 
 
-<?php get_footer(); ?>
+<?php
+get_footer();
