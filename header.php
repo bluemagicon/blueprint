@@ -32,7 +32,8 @@
         </a>
         <div class="header-right">
             <div class="contact-bar">
-
+                <a href="tel:<?php echo get_field('telefon', 11); ?>" class="contact-choice tel"><?php echo get_field('telefon', 11); ?></a>
+                <a href="mailto:<?php echo get_field('e-mail', 11); ?>" class="contact-choice mail"><?php echo get_field('e-mail', 11); ?></a>
             </div>
             <div class="mainnav-wrapper">
                 <?php echo wp_nav_menu(array('menu' => 'Hauptnavigation')); ?>
