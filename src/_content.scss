@@ -9,6 +9,11 @@ body{
   margin: 0;
   font-size: 18px;
   color: #000000;
+  font-family: 'Roboto', sans-serif;
+}
+body.active{
+  height: 100vh;
+  overflow: hidden;
 }
 ul{
   margin-bottom: 15px;
@@ -17,9 +22,12 @@ ul{
 a{
   color: inherit;
 }
+a:hover{
+  color: inherit;
+}
 p{
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin: 0 0 15px 0;
 }
 
 /*** HELPER ***/
@@ -31,10 +39,143 @@ p{
   }
 }
 
+/*** HEADLINES & BUTTONS ***/
+h1{
+  font-size: 60px;
+  margin-bottom: 15px;
+  color: #000;
+}
+h2{
+  font-size: 42px;
+  color: #000;
+  margin-bottom: 15px;
+}
+h6{
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 10px;
+}
+.button-1,
+.three-box-wrapper .box a{
+  background-color: var(--key-color);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 15px;
+  font-weight: 600;
+  text-decoration: none !important;
+  font-size: 14px;
+}
+
 /*** CONTAINER ***/
 .container{
   width: 90%;
   margin: 0 auto;
   max-width: 1400px;
   position: relative;
+}
+.container.default{
+  padding: 75px 0;
+  min-height: calc(100vh - 257px - 38px);
+}
+.default ul{
+  list-style: disc;
+  line-height: 1.6;
+  margin-left: 20px;
+}
+
+/*** Mainteaser-Slider ***/
+.mainteaser-slider{
+  height: 750px;
+  .slide{
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0,0,0,0.4);
+      top: 0;
+      left: 0;
+    }
+    .content-wrapper{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      max-width: 960px;
+      width: 90%;
+      h1{
+        color: #fff;
+      }
+    }
+  }
+}
+
+/*** THREE BOXES TEASER ***/
+.three-box-wrapper{
+  margin: -125px 0 75px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  .box{
+    width: 31%;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+    h2{
+      background-color: var(--key-color);
+      color: #fff;
+      display: block;
+      margin-bottom: 0;
+      padding: 15px;
+    }
+    .content-wrapper{
+      padding: 15px;
+    }
+  }
+}
+.map-wrapper{
+  height: 500px;
+}
+
+/*** SPEISEKARTE ***/
+.page-id-105 iframe{
+  width: 100% !important;
+  height: 850px !important;
+}
+
+@media(max-width: 1200px){
+  .three-box-wrapper .box h2{
+    font-size: 42px;
+  }
+  .mainteaser-slider{
+    height: 550px;
+  }
+}
+@media(max-width: 992px){
+  .three-box-wrapper .box h2{
+    font-size: 34px;
+  }
+}
+@media(max-width: 768px){
+  .mainteaser-slider{
+    height: 400px;
+  }
+  .three-box-wrapper{
+    margin: 50px 0;
+    .box {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+  }
+}
+@media(max-width: 576px){
+  h1{
+    font-size: 48px;
+  }
 }
