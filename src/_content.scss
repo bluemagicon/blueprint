@@ -1,4 +1,11 @@
 /*** GLOBAL ***/
+.bg-test{
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-image: url('../img/facebook-black.svg');
+  display: block;
+}
 *{
   outline: none !important;
   box-sizing: border-box !important;
@@ -56,7 +63,7 @@ h6{
   margin-bottom: 10px;
 }
 .button-1,
-.three-box-wrapper .box a{
+.three-box-wrapper .box em{
   background-color: var(--key-color);
   color: #fff;
   display: inline-flex;
@@ -65,6 +72,11 @@ h6{
   font-weight: 600;
   text-decoration: none !important;
   font-size: 14px;
+  transition: all .3s;
+}
+.button-1:hover,
+.three-box-wrapper .box em:hover{
+  filter: brightness(1.2);
 }
 
 /*** CONTAINER ***/
@@ -127,6 +139,8 @@ h6{
   .box{
     width: 31%;
     box-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+    background: #fff;
+    text-decoration: none !important;
     h2{
       background-color: var(--key-color);
       color: #fff;
@@ -137,10 +151,23 @@ h6{
     .content-wrapper{
       padding: 15px;
     }
+    .img-wrapper{
+      overflow: hidden;
+      img{
+        transition: all .3s;
+      }
+    }
+  }
+  a.box{
+    cursor: pointer;
+   &:hover .img-wrapper img{
+     transform: scale(1.1);
+   }
   }
 }
 .map-wrapper{
   height: 500px;
+  pointer-events: none;
 }
 
 /*** SPEISEKARTE ***/

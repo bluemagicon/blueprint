@@ -9,10 +9,9 @@
         </div>
         <div class="col">
             <h6>Kontakt</h6>
-            <p>
-                Tel: <a href="tel:<?php echo get_field('telefon', 11); ?>"><?php echo get_field('telefon', 11); ?></a> <br />
-                E-Mail: <a href="mailto:<?php echo get_field('e-mail', 11); ?>"><?php echo get_field('e-mail', 11); ?></a>
-            </p>
+            <?php echo get_field('adresse', 11); ?>
+            Tel: <a href="tel:<?php echo get_field('telefon', 11); ?>"><?php echo get_field('telefon', 11); ?></a> <br />
+            E-Mail: <a href="mailto:<?php echo get_field('e-mail', 11); ?>"><?php echo get_field('e-mail', 11); ?></a>
         </div>
         <div class="col">
             <h6>Sitemap</h6>

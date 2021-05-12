@@ -5,6 +5,7 @@
 get_header();
 ?>
 
+
 <?php if(have_rows('mainteaser_slider')){ ?>
     <div class="mainteaser-slider">
         <?php while(have_rows('mainteaser_slider')) : the_row(); ?>
@@ -20,7 +21,7 @@ get_header();
 <div class="container">
     <div class="three-box-wrapper">
         <?php while(have_rows('box-teaser')) : the_row(); ?>
-            <div class="box">
+            <?php if(get_sub_field('link') != ""){ ?><a href="<?php echo get_sub_field('link')['url']; ?>" class="box"><?php }else{ ?><div class="box"><?php } ?>
                 <h2><?php echo get_sub_field('headline'); ?></h2>
                 <div class="img-wrapper">
                     <img src="<?php echo get_sub_field('bild')['url']; ?>" alt="" />
@@ -28,7 +29,7 @@ get_header();
                 <div class="content-wrapper">
                     <?php echo get_sub_field('inhalt'); ?>
                 </div>
-            </div>
+            <?php if(get_sub_field('link') != ""){ ?></a><?php }else{ ?></div><?php } ?>
         <?php endwhile; ?>
     </div>
 </div>

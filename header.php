@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang=de>
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title><?php wp_title(''); ?></title>
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -31,23 +31,39 @@
 
 <div class="social-bar">
     <div class="container">
-        <?php while(have_rows('socials', 11)) : the_row(); ?>
-            <?php if(get_sub_field('instagram') != ""){ ?>
-                <a href="<?php echo get_sub_field('instagram') ?>" class="img-wrapper">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/instagram.svg" alt="" />
-                </a>
-            <?php } ?>
-            <?php if(get_sub_field('facebook') != ""){ ?>
-                <a href="<?php echo get_sub_field('instagram') ?>" class="img-wrapper">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/facebook.svg" alt="" />
-                </a>
-            <?php } ?>
-            <?php if(get_sub_field('twitter') != ""){ ?>
-                <a href="<?php echo get_sub_field('instagram') ?>" class="img-wrapper">
-                    <img src="<?php echo get_template_directory_uri(); ?>/img/twitter.svg" alt="" />
-                </a>
-            <?php } ?>
-        <?php endwhile; ?>
+        <div class="socials">
+            <?php while(have_rows('socials', 11)) : the_row(); ?>
+                <?php if(get_sub_field('instagram') != ""){ ?>
+                    <a href="<?php echo get_sub_field('instagram') ?>" class="img-wrapper">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/instagram.svg" alt="" />
+                    </a>
+                <?php } ?>
+                <?php if(get_sub_field('facebook') != ""){ ?>
+                    <a href="<?php echo get_sub_field('instagram') ?>" class="img-wrapper">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/facebook.svg" alt="" />
+                    </a>
+                <?php } ?>
+                <?php if(get_sub_field('twitter') != ""){ ?>
+                    <a href="<?php echo get_sub_field('instagram') ?>" class="img-wrapper">
+                        <img src="<?php echo get_template_directory_uri(); ?>/img/twitter.svg" alt="" />
+                    </a>
+                <?php } ?>
+            <?php endwhile; ?>
+        </div>
+        <div class="contacts">
+            <a href="tel:<?php echo get_field('telefon', 11); ?>" class="img-wrapper phone">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/phone-call.svg" alt="" />
+                <div class="text">
+                    <?php echo get_field('telefon', 11); ?>
+                </div>
+            </a>
+            <a href="mailto:<?php echo get_field('e-mail', 11); ?>" class="img-wrapper">
+                <img src="<?php echo get_template_directory_uri(); ?>/img/mail.svg" alt="" />
+                <div class="text">
+                    <?php echo get_field('e-mail', 11); ?>
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 <header id="header">

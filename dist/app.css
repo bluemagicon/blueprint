@@ -7,22 +7,42 @@
 }
 .social-bar .container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+.social-bar .container .socials, .social-bar .container .contacts {
+  display: flex;
+  align-items: center;
 }
 .social-bar .container a {
-  display: block;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  text-decoration: none !important;
+}
+.social-bar .container a img {
   height: 30px;
   width: 30px;
-  margin-right: 20px;
+}
+.social-bar .container a .text {
+  margin-left: 10px;
+  color: #fff;
+  font-size: 16px;
 }
 .social-bar .container a:last-child {
   margin-right: 0;
+}
+.social-bar .container a.phone img {
+  width: 26px;
+  height: 26px;
 }
 
 #header {
   padding: 20px 0;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
   position: relative;
+  background-image: url("../img/header-bg.jpg");
+  background-size: cover;
+  background-position: center;
 }
 #header .container {
   display: flex;
@@ -65,15 +85,21 @@
 
 #footer {
   padding: 35px 0;
+  background-image: url("../img/header-bg.jpg");
+  background-size: cover;
+  background-position: center;
 }
 #footer .container {
   display: flex;
   justify-content: space-between;
 }
-#footer .container ul {
+#footer .container .col {
   line-height: 1.6;
 }
-#footer .container ul li a {
+#footer .container .col ul {
+  line-height: 1.6;
+}
+#footer .container .col ul li a {
   font-family: "Roboto", sans-serif !important;
 }
 #footer .container .socials {
@@ -219,7 +245,24 @@
     justify-content: center;
   }
 }
+@media (max-width: 576px) {
+  .social-bar .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-bar .container .socials {
+    margin-bottom: 15px;
+  }
+}
 /*** GLOBAL ***/
+.bg-test {
+  height: 50px;
+  width: 50px;
+  background-size: contain;
+  background-image: url("../img/facebook-black.svg");
+  display: block;
+}
+
 * {
   outline: none !important;
   box-sizing: border-box !important;
@@ -286,7 +329,7 @@ h6 {
 }
 
 .button-1,
-.three-box-wrapper .box a {
+.three-box-wrapper .box em {
   background-color: var(--key-color);
   color: #fff;
   display: inline-flex;
@@ -295,6 +338,12 @@ h6 {
   font-weight: 600;
   text-decoration: none !important;
   font-size: 14px;
+  transition: all 0.3s;
+}
+
+.button-1:hover,
+.three-box-wrapper .box em:hover {
+  filter: brightness(1.2);
 }
 
 /*** CONTAINER ***/
@@ -360,6 +409,8 @@ h6 {
 .three-box-wrapper .box {
   width: 31%;
   box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  text-decoration: none !important;
 }
 .three-box-wrapper .box h2 {
   background-color: var(--key-color);
@@ -371,9 +422,22 @@ h6 {
 .three-box-wrapper .box .content-wrapper {
   padding: 15px;
 }
+.three-box-wrapper .box .img-wrapper {
+  overflow: hidden;
+}
+.three-box-wrapper .box .img-wrapper img {
+  transition: all 0.3s;
+}
+.three-box-wrapper a.box {
+  cursor: pointer;
+}
+.three-box-wrapper a.box:hover .img-wrapper img {
+  transform: scale(1.1);
+}
 
 .map-wrapper {
   height: 500px;
+  pointer-events: none;
 }
 
 /*** SPEISEKARTE ***/
